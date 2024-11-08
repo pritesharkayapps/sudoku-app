@@ -21,7 +21,7 @@ function App() {
   const fillRandomValues = () => {
     const emptyBox = createEmptyGrid();
     let count = 0;
-    while (count < 75) {
+    while (count < 40) {
       const row = Math.floor(Math.random() * 9);
       const col = Math.floor(Math.random() * 9);
       if (emptyBox[row][col].value === null) {
