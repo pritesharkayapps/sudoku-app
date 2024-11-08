@@ -39,7 +39,7 @@ function App() {
 
     const newValue = parseInt(value) || null;
 
-    if (countOccurrences(newValue) >= 9) {
+    if (newValue !== null && countOccurrences(newValue) >= 9) {
       setActiveValue(null)
       setMessage("You can't place the number more than 9 times. Choose a different number.");
       return;
@@ -134,7 +134,7 @@ function App() {
                   box: getBoxIndex(rowIndex, colIndex) === highlighted.box,
                   number: cell.value === currentValue
                 }}
-                isWrongValue={showAnswer && sudokuGrid[rowIndex][colIndex] !== cell.value}
+                isWrongValue={!showAnswer && sudokuGrid[rowIndex][colIndex] !== cell.value}
               />
             ))}
           </div>
