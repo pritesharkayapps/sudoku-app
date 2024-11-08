@@ -1,0 +1,195 @@
+/* General Body and Container Styling */
+body {
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Box and Row Styling */
+.box-container {
+    display: grid;
+    max-width: 700px;
+    max-height: 700px;
+    border: 2px solid #0c6ed7;
+    padding: 2px;
+}
+
+.board-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square {
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 8px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    margin: 1.2px;
+}
+
+
+.custom-btn {
+    border: 1px solid #feb031;
+    background-color: #fdf2ec;
+    color: #000;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    width: 45px;
+    height: 45px;
+    font-size: 19px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+    background-color: #fab282;
+    color: #fff;
+}
+
+.custom-btn.active {
+    background-color: #2087f6;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.custom-btn:disabled {
+    background-color: #d3d3d3;
+    border: 1px solid #c0c0c0;
+    color: #3c3c3c;
+    cursor: not-allowed;
+}
+
+/* Input Styling */
+input.square {
+    caret-color: transparent;
+    background-color: #ffffff;
+    color: black;
+    font-weight: bold;
+}
+
+input:focus {
+    border: 1px solid #650f49 !important;
+    background-color: #f8f8f8;
+}
+
+input:read-only {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+input.square.highlight-row,
+input.square.highlight-col,
+input.square.highlight-box {
+    background-color: #e2ebf3;
+}
+
+input.square.highlight-row:read-only,
+input.square.highlight-col:read-only,
+input.square.highlight-box:read-only {
+    background-color: rgb(207, 219, 232);
+    color: black;
+}
+
+input.square.highlight-number {
+    font-weight: bold;
+    background-color: #f9d1d1 !important;
+}
+
+input.square:focus-visible {
+    background-color: #f9d1d1 !important;
+}
+
+input.square.wrong-input {
+    color: red;
+}
+
+/* Responsive Styling for Mobile */
+@media only screen and (max-width: 600px) {
+    .box-container {
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0 auto;
+    }
+
+    .square {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+        margin: 1px;
+    }
+
+    .custom-btn {
+        width: 22px;
+        height: 22px;
+        font-size: 18px;
+    }
+}
+
+/* Responsive Styling for Tablets */
+@media only screen and (max-width: 1024px) {
+    .box-container {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .square {
+        width: 35px;
+        height: 35px;
+        font-size: 15px;
+    }
+
+    .custom-btn {
+        width: 33px;
+        height: 33px;
+        font-size: 14px;
+    }
+}
+
+/* Board Grid Styling */
+@media only screen and (min-width: 600px) {
+
+    .board-row:nth-child(3) .square,
+    .board-row:nth-child(6) .square {
+        border-bottom: 1px solid #505050;
+    }
+
+    .board-row .square:nth-child(3),
+    .board-row .square:nth-child(6) {
+        border-right: 1px solid #505050;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+
+    .board-row:nth-child(3) .square,
+    .board-row:nth-child(6) .square {
+        border-bottom: 2px solid #505050;
+    }
+
+    .board-row .square:nth-child(3),
+    .board-row .square:nth-child(6) {
+        border-right: 2px solid #505050;
+    }
+}
