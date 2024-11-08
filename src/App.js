@@ -5,10 +5,9 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
-// Sudoku Game Component
-function App() {
-  const createEmptyGrid = () => Array.from({ length: 9 }, () => Array(9).fill({ value: null, isEditable: true }));
+const createEmptyGrid = () => Array.from({ length: 9 }, () => Array(9).fill({ value: null, isEditable: true }));
 
+function App() {
   const [boxes, setBoxes] = useState(createEmptyGrid());
   const [activeValue, setActiveValue] = useState(0);
   const [selectedSquare, setSelectedSquare] = useState(null);
