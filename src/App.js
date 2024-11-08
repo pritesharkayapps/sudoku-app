@@ -19,10 +19,6 @@ function App() {
   const [showAnswer, setShowAnswer] = useState(false);
   const [hintsRemaining, setHintsRemaining] = useState(3);
 
-  useEffect(() => {
-    fillRandomValues();
-  }, []);
-
   const fillRandomValues = () => {
     const emptyBox = createEmptyGrid();
     let count = 0;
@@ -54,7 +50,7 @@ function App() {
       newBoxes[rowIndex] = [...newBoxes[rowIndex]];
       newBoxes[rowIndex][colIndex] = { value: newValue, isEditable: prevBoxes[rowIndex][colIndex].isEditable };
       setCurrentValue(newValue !== null ? newValue : 0);
-      
+
       if (isGridFilled(newBoxes)) {
         if (checkGridCompletion(newBoxes)) {
           setIsGameCompleted(true);
@@ -112,6 +108,10 @@ function App() {
   const countOccurrences = (value) => boxes.flat().filter((box) => box.value === value).length;
 
   const getBoxIndex = (row, col) => Math.floor(row / 3) * 3 + Math.floor(col / 3);
+
+  useEffect(() => {
+    fillRandomValues();
+  }, []);
 
   return (
     <div className="container">
