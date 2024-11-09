@@ -202,6 +202,8 @@ function ActionButton({ icon, tooltip, onClick, active, disabled, hintCount }) {
 function Square({ value, isEditable, onChange, onClick, isHighlighted, isWrongValue }) {
   const highlightClass = `${isHighlighted.row ? 'highlight-row ' : ''}${isHighlighted.col ? 'highlight-col ' : ''}${isHighlighted.box ? 'highlight-box ' : ''}${isHighlighted.number ? 'highlight-number ' : ''}${isWrongValue ? 'wrong-input ' : ''}`.trim();
 
+  const isSmallDevice = window.innerWidth < 768;
+
   return (
     <input
       type="text"
@@ -209,7 +211,7 @@ function Square({ value, isEditable, onChange, onClick, isHighlighted, isWrongVa
       value={value !== null ? value : ""}
       onChange={onChange}
       onClick={onClick}
-      readOnly={!isEditable}
+      readOnly={!isEditable || isSmallDevice} // Combine both conditions here
       maxLength="1"
     />
   );
